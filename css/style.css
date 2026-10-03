@@ -1,0 +1,377 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #fffaf5;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   UTILITÁRIOS
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.header .container {
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    opacity: 0.6;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("../assets/images/restaurant.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background-color: #ffffff;
+    color: #222;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.section-title span,
+.about-text > span {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.section-title h2,
+.about-text h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+
+/* =========================
+   CARDÁPIO
+========================= */
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.menu-card {
+    background-color: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+}
+
+.menu-image {
+    min-height: 180px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 5rem;
+
+    background-color: #f2e7dc;
+}
+
+.menu-content {
+    padding: 25px;
+}
+
+.menu-content h3 {
+    margin-bottom: 10px;
+}
+
+.menu-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.menu-content strong {
+    font-size: 1.2rem;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.about {
+    background-color: white;
+}
+
+.about-content {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.about-image {
+    min-height: 400px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 10rem;
+
+    background-color: #f2e7dc;
+
+    border-radius: 10px;
+}
+
+.about-text p {
+    margin: 20px 0;
+    color: #666;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact {
+    background-color: #fffaf5;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.contact-grid > div {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 30px 0;
+
+    background-color: #222;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 800px) {
+
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .section-title h2,
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+}
