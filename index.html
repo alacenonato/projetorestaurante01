@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
@@ -13,20 +17,35 @@
 
     <title>Bella Tavola | Cucina Italiana</title>
 
-    <!-- Google Fonts -->
+
+    <!-- GOOGLE FONTS -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
 
+
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
 
+
 <body>
+
 
     <!-- ==================================================
          HEADER
@@ -36,42 +55,95 @@
 
         <div class="container header-container">
 
-            <a href="#inicio" class="logo">
+
+            <a
+                href="#inicio"
+                class="logo"
+            >
                 Bella Tavola
             </a>
 
-            <nav class="nav">
 
-                <a href="#inicio">Início</a>
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
 
-                <a href="#cardapio">Cardápio</a>
 
-                <a href="#sobre">Sobre</a>
+            <nav
+                class="nav"
+                id="mainNav"
+            >
 
-                <a href="#depoimentos">Depoimentos</a>
+                <a href="#inicio">
+                    Início
+                </a>
 
-                <a href="#contato">Contato</a>
+                <a href="#cardapio">
+                    Cardápio
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#depoimentos">
+                    Depoimentos
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
 
             </nav>
 
-            <a href="#reservas" class="btn btn-primary">
-                Reservar mesa
-            </a>
+
+            <button
+                class="cart-button"
+                id="cartButton"
+                aria-label="Abrir carrinho"
+            >
+
+                🛒
+
+                <span class="cart-button-text">
+                    Pedido
+                </span>
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
 
         </div>
 
     </header>
 
 
+
     <main>
+
 
         <!-- ==================================================
              HERO
         ================================================== -->
 
-        <section class="hero" id="inicio">
+        <section
+            class="hero"
+            id="inicio"
+        >
 
             <div class="hero-overlay"></div>
+
 
             <div class="container hero-content">
 
@@ -79,23 +151,33 @@
                     CUCINA ITALIANA
                 </span>
 
+
                 <h1>
                     Uma mesa,<br>
                     mil histórias.
                 </h1>
+
 
                 <p>
                     Sabores italianos preparados com ingredientes
                     selecionados, tradição e um toque contemporâneo.
                 </p>
 
+
                 <div class="hero-buttons">
 
-                    <a href="#cardapio" class="btn btn-primary">
+                    <a
+                        href="#cardapio"
+                        class="btn btn-primary"
+                    >
                         Ver cardápio
                     </a>
 
-                    <a href="#reservas" class="btn btn-outline">
+
+                    <a
+                        href="#reservas"
+                        class="btn btn-outline"
+                    >
                         Fazer reserva
                     </a>
 
@@ -106,6 +188,7 @@
         </section>
 
 
+
         <!-- ==================================================
              INTRO
         ================================================== -->
@@ -114,11 +197,13 @@
 
             <div class="container intro-container">
 
+
                 <div class="intro-heading">
 
                     <span class="section-label">
                         BENVENUTI
                     </span>
+
 
                     <h2>
                         O sabor da Itália
@@ -126,6 +211,7 @@
                     </h2>
 
                 </div>
+
 
                 <div class="intro-text">
 
@@ -135,6 +221,7 @@
                         memória e celebração.
                     </p>
 
+
                     <p>
                         Nossa cozinha combina receitas tradicionais italianas
                         com ingredientes frescos e uma apresentação moderna.
@@ -142,18 +229,24 @@
 
                 </div>
 
+
             </div>
 
         </section>
+
 
 
         <!-- ==================================================
              CARDÁPIO
         ================================================== -->
 
-        <section class="menu section" id="cardapio">
+        <section
+            class="menu section"
+            id="cardapio"
+        >
 
             <div class="container">
+
 
                 <div class="section-header">
 
@@ -163,6 +256,7 @@
                             NOSSO CARDÁPIO
                         </span>
 
+
                         <h2>
                             Feito para<br>
                             despertar os sentidos.
@@ -170,20 +264,89 @@
 
                     </div>
 
+
                     <p>
-                        Uma seleção de pratos preparados diariamente
-                        pela nossa equipe.
+                        Escolha uma categoria ou explore
+                        todos os nossos pratos.
                     </p>
 
                 </div>
 
 
-                <div class="menu-grid">
+
+                <!-- FILTROS -->
+
+                <div
+                    class="category-filters"
+                    id="categoryFilters"
+                >
+
+                    <button
+                        class="filter-button active"
+                        data-category="todos"
+                    >
+                        Todos
+                    </button>
 
 
-                    <!-- PRATO 01 -->
+                    <button
+                        class="filter-button"
+                        data-category="pizza"
+                    >
+                        Pizzas
+                    </button>
 
-                    <article class="menu-card">
+
+                    <button
+                        class="filter-button"
+                        data-category="massa"
+                    >
+                        Massas
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-category="carne"
+                    >
+                        Carnes
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-category="salada"
+                    >
+                        Saladas
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-category="sobremesa"
+                    >
+                        Sobremesas
+                    </button>
+
+                </div>
+
+
+
+                <!-- CARDS -->
+
+                <div
+                    class="menu-grid"
+                    id="menuGrid"
+                >
+
+
+                    <!-- PIZZA -->
+
+                    <article
+                        class="menu-card"
+                        data-id="1"
+                        data-category="pizza"
+                    >
 
                         <div class="menu-image">
 
@@ -195,6 +358,7 @@
 
                         </div>
 
+
                         <div class="menu-content">
 
                             <div class="menu-title">
@@ -204,28 +368,50 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 42
+                                    R$ 42,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Molho de tomate, mozzarella fresca,
                                 manjericão e azeite extravirgem.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="1"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="1"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PRATO 02 -->
 
-                    <article class="menu-card">
+                    <!-- MASSA -->
+
+                    <article
+                        class="menu-card"
+                        data-id="2"
+                        data-category="massa"
+                    >
 
                         <div class="menu-image">
 
@@ -237,6 +423,7 @@
 
                         </div>
 
+
                         <div class="menu-content">
 
                             <div class="menu-title">
@@ -246,28 +433,50 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 48
+                                    R$ 48,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Massa artesanal preparada na casa,
                                 molho especial e parmesão italiano.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="2"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="2"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PRATO 03 -->
 
-                    <article class="menu-card">
+                    <!-- CARNE -->
+
+                    <article
+                        class="menu-card"
+                        data-id="3"
+                        data-category="carne"
+                    >
 
                         <div class="menu-image">
 
@@ -279,6 +488,7 @@
 
                         </div>
 
+
                         <div class="menu-content">
 
                             <div class="menu-title">
@@ -288,28 +498,50 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 79
+                                    R$ 79,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Corte selecionado grelhado,
                                 ervas frescas e legumes assados.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="3"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="3"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PRATO 04 -->
 
-                    <article class="menu-card">
+                    <!-- SALADA -->
+
+                    <article
+                        class="menu-card"
+                        data-id="4"
+                        data-category="salada"
+                    >
 
                         <div class="menu-image">
 
@@ -321,6 +553,7 @@
 
                         </div>
 
+
                         <div class="menu-content">
 
                             <div class="menu-title">
@@ -330,28 +563,50 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 34
+                                    R$ 34,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Folhas frescas, tomates, queijo,
                                 ervas e molho especial da casa.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="4"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="4"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PRATO 05 -->
 
-                    <article class="menu-card">
+                    <!-- SOBREMESA -->
+
+                    <article
+                        class="menu-card"
+                        data-id="5"
+                        data-category="sobremesa"
+                    >
 
                         <div class="menu-image">
 
@@ -363,6 +618,7 @@
 
                         </div>
 
+
                         <div class="menu-content">
 
                             <div class="menu-title">
@@ -372,38 +628,61 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 28
+                                    R$ 28,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Sobremesa artesanal preparada
                                 diariamente pelo nosso chef.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="5"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="5"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PRATO 06 -->
 
-                    <article class="menu-card">
+                    <!-- PIZZA -->
+
+                    <article
+                        class="menu-card"
+                        data-id="6"
+                        data-category="pizza"
+                    >
 
                         <div class="menu-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=85"
-                                alt="Pizza artesanal"
+                                alt="Pizza Diavola"
                                 loading="lazy"
                             >
 
                         </div>
+
 
                         <div class="menu-content">
 
@@ -414,19 +693,36 @@
                                 </h3>
 
                                 <span class="price">
-                                    R$ 49
+                                    R$ 49,00
                                 </span>
 
                             </div>
+
 
                             <p>
                                 Molho de tomate, mozzarella,
                                 salame picante e manjericão.
                             </p>
 
-                            <button class="menu-button">
-                                Ver detalhes
-                            </button>
+
+                            <div class="card-actions">
+
+                                <button
+                                    class="menu-button details-button"
+                                    data-id="6"
+                                >
+                                    Ver detalhes
+                                </button>
+
+
+                                <button
+                                    class="add-button"
+                                    data-id="6"
+                                >
+                                    + Adicionar
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -440,13 +736,18 @@
         </section>
 
 
+
         <!-- ==================================================
              SOBRE
         ================================================== -->
 
-        <section class="about section" id="sobre">
+        <section
+            class="about section"
+            id="sobre"
+        >
 
             <div class="container about-container">
+
 
                 <div class="about-image">
 
@@ -465,10 +766,12 @@
                         NOSSA HISTÓRIA
                     </span>
 
+
                     <h2>
                         Uma paixão que começou
                         na cozinha da família.
                     </h2>
+
 
                     <p>
                         O Bella Tavola nasceu inspirado nas tradicionais
@@ -476,13 +779,18 @@
                         estiveram juntas à mesa.
                     </p>
 
+
                     <p>
                         Hoje mantemos essa mesma essência, combinando
                         receitas tradicionais, ingredientes selecionados
                         e criatividade.
                     </p>
 
-                    <a href="#contato" class="text-link">
+
+                    <a
+                        href="#contato"
+                        class="text-link"
+                    >
                         Conheça nossa história →
                     </a>
 
@@ -493,19 +801,25 @@
         </section>
 
 
+
         <!-- ==================================================
              DEPOIMENTOS
         ================================================== -->
 
-        <section class="testimonials section" id="depoimentos">
+        <section
+            class="testimonials section"
+            id="depoimentos"
+        >
 
             <div class="container">
+
 
                 <div class="section-header centered">
 
                     <span class="section-label">
                         O QUE DIZEM NOSSOS CLIENTES
                     </span>
+
 
                     <h2>
                         Experiências que ficam
@@ -580,11 +894,15 @@
         </section>
 
 
+
         <!-- ==================================================
-             RESERVAS
+             CTA
         ================================================== -->
 
-        <section class="cta" id="reservas">
+        <section
+            class="cta"
+            id="reservas"
+        >
 
             <div class="container cta-content">
 
@@ -592,16 +910,22 @@
                     SUA PRÓXIMA EXPERIÊNCIA
                 </span>
 
+
                 <h2>
                     Reserve sua mesa.
                 </h2>
+
 
                 <p>
                     Venha experimentar a verdadeira essência
                     da cozinha italiana.
                 </p>
 
-                <a href="#contato" class="btn btn-light">
+
+                <a
+                    href="#contato"
+                    class="btn btn-light"
+                >
                     Fazer uma reserva
                 </a>
 
@@ -610,13 +934,18 @@
         </section>
 
 
+
         <!-- ==================================================
              CONTATO
         ================================================== -->
 
-        <section class="contact section" id="contato">
+        <section
+            class="contact section"
+            id="contato"
+        >
 
             <div class="container contact-container">
+
 
                 <div class="contact-heading">
 
@@ -624,9 +953,11 @@
                         ONDE ESTAMOS
                     </span>
 
+
                     <h2>
                         Venha nos visitar.
                     </h2>
+
 
                     <p>
                         Rua das Oliveiras, 250<br>
@@ -688,6 +1019,7 @@
     </main>
 
 
+
     <!-- ==================================================
          FOOTER
     ================================================== -->
@@ -699,9 +1031,13 @@
 
             <div class="footer-brand">
 
-                <a href="#inicio" class="logo">
+                <a
+                    href="#inicio"
+                    class="logo"
+                >
                     Bella Tavola
                 </a>
+
 
                 <p>
                     Cucina Italiana
@@ -740,6 +1076,7 @@
                 © 2026 Bella Tavola. Projeto fictício para estudo.
             </p>
 
+
             <p>
                 Fotos: Unsplash
             </p>
@@ -747,6 +1084,185 @@
         </div>
 
     </footer>
+
+
+
+    <!-- ==================================================
+         MODAL DE DETALHES
+    ================================================== -->
+
+    <div
+        class="modal"
+        id="detailsModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-overlay"></div>
+
+
+        <div
+            class="modal-content"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <img
+                src=""
+                alt=""
+                class="modal-image"
+                id="modalImage"
+            >
+
+
+            <div class="modal-body">
+
+                <span
+                    class="modal-category"
+                    id="modalCategory"
+                >
+                </span>
+
+
+                <h2 id="modalTitle">
+                </h2>
+
+
+                <p id="modalDescription">
+                </p>
+
+
+                <div class="modal-footer">
+
+                    <strong id="modalPrice">
+                    </strong>
+
+
+                    <button
+                        class="btn btn-primary"
+                        id="modalAddButton"
+                    >
+                        Adicionar ao pedido
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CARRINHO
+    ================================================== -->
+
+    <aside
+        class="cart-sidebar"
+        id="cartSidebar"
+        aria-hidden="true"
+    >
+
+
+        <div class="cart-header">
+
+            <div>
+
+                <span class="section-label">
+                    SEU PEDIDO
+                </span>
+
+                <h2>
+                    Carrinho
+                </h2>
+
+            </div>
+
+
+            <button
+                class="cart-close"
+                id="cartClose"
+                aria-label="Fechar carrinho"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        >
+
+            <!-- JavaScript preencherá aqui -->
+
+        </div>
+
+
+
+        <div class="cart-footer">
+
+
+            <div class="cart-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-button"
+                id="checkoutButton"
+            >
+                Finalizar pedido
+            </button>
+
+
+            <button
+                class="clear-cart-button"
+                id="clearCartButton"
+            >
+                Limpar carrinho
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- OVERLAY DO CARRINHO -->
+
+    <div
+        class="cart-overlay"
+        id="cartOverlay"
+    >
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
 
 </body>
 
