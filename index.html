@@ -2,30 +2,87 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bella Tavola | Restaurante</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta
+        name="description"
+        content="Bella Tavola — Restaurante italiano com sabores autênticos e ingredientes selecionados."
+    >
+
+    <title>Bella Tavola | Cucina Italiana</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- CABEÇALHO -->
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="header">
 
-        <div class="container">
+        <div class="container header-container">
 
-            <a href="#" class="logo">
-                Bella Tavola
+            <a
+                href="#inicio"
+                class="logo"
+            >
+                <span>Bella</span>
+                Tavola
             </a>
 
+
             <nav class="nav">
-                <a href="#inicio">Início</a>
-                <a href="#cardapio">Cardápio</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#contato">Contato</a>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#cardapio">
+                    Cardápio
+                </a>
+
+                <a href="#sobre">
+                    Nossa história
+                </a>
+
+                <a href="#depoimentos">
+                    Depoimentos
+                </a>
+
+                <a
+                    href="#contato"
+                    class="nav-button"
+                >
+                    Reservar mesa
+                </a>
+
             </nav>
 
         </div>
@@ -33,32 +90,59 @@
     </header>
 
 
-    <!-- HERO -->
+
     <main>
 
-        <section id="inicio" class="hero">
 
-            <div class="container hero-content">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-                <div class="hero-text">
+        <section
+            id="inicio"
+            class="hero"
+        >
 
-                    <span class="hero-subtitle">
-                        Restaurante Italiano
+            <div class="hero-overlay"></div>
+
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        Cucina Italiana
                     </span>
 
                     <h1>
-                        Sabor que
-                        <span>reúne pessoas.</span>
+                        Uma mesa,
+                        <span>mil histórias.</span>
                     </h1>
 
                     <p>
-                        Uma experiência gastronômica preparada
-                        com ingredientes selecionados e muito carinho.
+                        Sabores italianos preparados com
+                        ingredientes selecionados e servidos
+                        em um ambiente feito para celebrar.
                     </p>
 
-                    <a href="#cardapio" class="button">
-                        Ver nosso cardápio
-                    </a>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#cardapio"
+                            class="button button-primary"
+                        >
+                            Explorar cardápio
+                        </a>
+
+                        <a
+                            href="#contato"
+                            class="button button-outline"
+                        >
+                            Reservar uma mesa
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -67,184 +151,296 @@
         </section>
 
 
-        <!-- CARDÁPIO -->
-        <section id="cardapio" class="menu section">
 
-            <div class="container">
+        <!-- =========================
+             INTRO
+        ========================== -->
 
-                <div class="section-title">
+        <section class="intro section">
 
-                    <span>Nosso cardápio</span>
+            <div class="container intro-container">
+
+                <div>
+
+                    <span class="eyebrow">
+                        Bem-vindo à Bella Tavola
+                    </span>
 
                     <h2>
-                        Pratos especiais
+                        O sabor da Itália
+                        à sua mesa.
                     </h2>
 
+                </div>
+
+
+                <div>
+
                     <p>
-                        Confira algumas das nossas especialidades.
+                        Acreditamos que uma boa refeição
+                        é muito mais do que comida.
+                    </p>
+
+                    <p>
+                        É encontro, conversa, memória
+                        e celebração.
                     </p>
 
                 </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CARDÁPIO
+        ========================== -->
+
+        <section
+            id="cardapio"
+            class="menu section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            Nosso cardápio
+                        </span>
+
+                        <h2>
+                            Favoritos da casa
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Receitas clássicas com um toque
+                        contemporâneo.
+                    </p>
+
+                </div>
+
 
 
                 <div class="menu-grid">
 
-                    <!-- CARD 1 -->
+
+                    <!-- CARD -->
+
                     <article class="menu-card">
 
-                        <div class="menu-image">
-                            🍕
+                        <div class="menu-card-image">
+
+                            <img
+                                src="assets/images/pizza.jpg"
+                                alt="Pizza Margherita"
+                            >
+
+                            <span class="menu-category">
+                                Pizza
+                            </span>
+
                         </div>
 
-                        <div class="menu-content">
 
-                            <h3>
-                                Pizza Margherita
-                            </h3>
+                        <div class="menu-card-content">
+
+                            <div class="menu-card-header">
+
+                                <h3>
+                                    Pizza Margherita
+                                </h3>
+
+                                <span>
+                                    R$ 39,90
+                                </span>
+
+                            </div>
 
                             <p>
-                                Molho de tomate, mozzarella,
-                                manjericão fresco e azeite.
+                                Molho de tomate italiano,
+                                mozzarella fresca,
+                                manjericão e azeite.
                             </p>
-
-                            <strong>
-                                R$ 39,90
-                            </strong>
 
                         </div>
 
                     </article>
 
 
-                    <!-- CARD 2 -->
+
+                    <!-- CARD -->
+
                     <article class="menu-card">
 
-                        <div class="menu-image">
-                            🍝
+                        <div class="menu-card-image">
+
+                            <img
+                                src="assets/images/pasta.jpg"
+                                alt="Spaghetti Italiano"
+                            >
+
+                            <span class="menu-category">
+                                Pasta
+                            </span>
+
                         </div>
 
-                        <div class="menu-content">
 
-                            <h3>
-                                Spaghetti Italiano
-                            </h3>
+                        <div class="menu-card-content">
+
+                            <div class="menu-card-header">
+
+                                <h3>
+                                    Spaghetti Italiano
+                                </h3>
+
+                                <span>
+                                    R$ 34,90
+                                </span>
+
+                            </div>
 
                             <p>
-                                Massa artesanal ao molho
-                                de tomate e parmesão.
+                                Massa artesanal com molho
+                                especial e parmesão.
                             </p>
-
-                            <strong>
-                                R$ 34,90
-                            </strong>
 
                         </div>
 
                     </article>
 
 
-                    <!-- CARD 3 -->
+
+                    <!-- CARD -->
+
                     <article class="menu-card">
 
-                        <div class="menu-image">
-                            🍔
+                        <div class="menu-card-image">
+
+                            <img
+                                src="assets/images/steak.jpg"
+                                alt="Filé Especial"
+                            >
+
+                            <span class="menu-category">
+                                Carnes
+                            </span>
+
                         </div>
 
-                        <div class="menu-content">
 
-                            <h3>
-                                Bella Burger
-                            </h3>
+                        <div class="menu-card-content">
+
+                            <div class="menu-card-header">
+
+                                <h3>
+                                    Filé Especial
+                                </h3>
+
+                                <span>
+                                    R$ 59,90
+                                </span>
+
+                            </div>
 
                             <p>
-                                Hambúrguer artesanal, queijo,
-                                tomate e molho especial.
+                                Filé grelhado servido com
+                                legumes e molho da casa.
                             </p>
-
-                            <strong>
-                                R$ 29,90
-                            </strong>
 
                         </div>
 
                     </article>
 
 
-                    <!-- CARD 4 -->
+
+                    <!-- CARD -->
+
                     <article class="menu-card">
 
-                        <div class="menu-image">
-                            🥗
+                        <div class="menu-card-image">
+
+                            <img
+                                src="assets/images/salad.jpg"
+                                alt="Salada Mediterrânea"
+                            >
+
+                            <span class="menu-category">
+                                Saladas
+                            </span>
+
                         </div>
 
-                        <div class="menu-content">
 
-                            <h3>
-                                Salada Mediterrânea
-                            </h3>
+                        <div class="menu-card-content">
+
+                            <div class="menu-card-header">
+
+                                <h3>
+                                    Salada Mediterrânea
+                                </h3>
+
+                                <span>
+                                    R$ 24,90
+                                </span>
+
+                            </div>
 
                             <p>
                                 Folhas frescas, tomate,
-                                queijo e molho especial.
+                                queijo e molho mediterrâneo.
                             </p>
-
-                            <strong>
-                                R$ 24,90
-                            </strong>
 
                         </div>
 
                     </article>
 
 
-                    <!-- CARD 5 -->
+
+                    <!-- CARD -->
+
                     <article class="menu-card">
 
-                        <div class="menu-image">
-                            🥩
+                        <div class="menu-card-image">
+
+                            <img
+                                src="assets/images/dessert.jpg"
+                                alt="Tiramisu"
+                            >
+
+                            <span class="menu-category">
+                                Sobremesa
+                            </span>
+
                         </div>
 
-                        <div class="menu-content">
 
-                            <h3>
-                                Filé Especial
-                            </h3>
+                        <div class="menu-card-content">
+
+                            <div class="menu-card-header">
+
+                                <h3>
+                                    Tiramisù
+                                </h3>
+
+                                <span>
+                                    R$ 19,90
+                                </span>
+
+                            </div>
 
                             <p>
-                                Filé grelhado acompanhado
-                                de legumes e batatas.
+                                Café, mascarpone e cacau
+                                em uma sobremesa clássica.
                             </p>
-
-                            <strong>
-                                R$ 59,90
-                            </strong>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- CARD 6 -->
-                    <article class="menu-card">
-
-                        <div class="menu-image">
-                            🍰
-                        </div>
-
-                        <div class="menu-content">
-
-                            <h3>
-                                Tiramisu
-                            </h3>
-
-                            <p>
-                                Sobremesa italiana tradicional
-                                com café e mascarpone.
-                            </p>
-
-                            <strong>
-                                R$ 19,90
-                            </strong>
 
                         </div>
 
@@ -252,44 +448,14 @@
 
                 </div>
 
-            </div>
 
-        </section>
+                <div class="menu-action">
 
-
-        <!-- SOBRE -->
-        <section id="sobre" class="about section">
-
-            <div class="container about-content">
-
-                <div class="about-image">
-                    🍝
-                </div>
-
-                <div class="about-text">
-
-                    <span>
-                        Nossa história
-                    </span>
-
-                    <h2>
-                        Mais que um restaurante,
-                        uma experiência.
-                    </h2>
-
-                    <p>
-                        A Bella Tavola nasceu da paixão pela
-                        gastronomia italiana e pelo desejo de
-                        reunir pessoas ao redor de uma boa mesa.
-                    </p>
-
-                    <p>
-                        Trabalhamos com ingredientes selecionados
-                        e receitas preparadas diariamente.
-                    </p>
-
-                    <a href="#contato" class="button">
-                        Conheça nosso restaurante
+                    <a
+                        href="#"
+                        class="button button-dark"
+                    >
+                        Ver cardápio completo
                     </a>
 
                 </div>
@@ -299,19 +465,218 @@
         </section>
 
 
-        <!-- CONTATO -->
-        <section id="contato" class="contact section">
 
-            <div class="container">
+        <!-- =========================
+             SOBRE
+        ========================== -->
 
-                <div class="section-title">
+        <section
+            id="sobre"
+            class="about section"
+        >
 
-                    <span>
-                        Fale conosco
+            <div class="container about-container">
+
+
+                <div class="about-image">
+
+                    <img
+                        src="assets/images/restaurant.jpg"
+                        alt="Interior do restaurante Bella Tavola"
+                    >
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <span class="eyebrow">
+                        Nossa história
                     </span>
 
                     <h2>
-                        Entre em contato
+                        Feito para
+                        <span>compartilhar.</span>
+                    </h2>
+
+                    <p>
+                        A Bella Tavola nasceu do desejo
+                        de criar um lugar onde comida,
+                        família e amizade pudessem
+                        ocupar a mesma mesa.
+                    </p>
+
+                    <p>
+                        Nossa cozinha valoriza ingredientes
+                        frescos, receitas tradicionais e
+                        o prazer de preparar cada prato
+                        com calma.
+                    </p>
+
+
+                    <a
+                        href="#contato"
+                        class="text-link"
+                    >
+                        Conheça nossa história
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DEPOIMENTOS
+        ========================== -->
+
+        <section
+            id="depoimentos"
+            class="testimonials section"
+        >
+
+            <div class="container">
+
+                <div class="section-heading centered">
+
+                    <span class="eyebrow">
+                        Experiência Bella Tavola
+                    </span>
+
+                    <h2>
+                        O que nossos clientes dizem
+                    </h2>
+
+                </div>
+
+
+                <div class="testimonial-grid">
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Um dos melhores lugares que
+                            já conheci. A comida é incrível
+                            e o ambiente é maravilhoso.”
+                        </p>
+
+                        <strong>
+                            Mariana Silva
+                        </strong>
+
+                    </article>
+
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “A massa artesanal é simplesmente
+                            fantástica. Voltarei com certeza.”
+                        </p>
+
+                        <strong>
+                            Rafael Oliveira
+                        </strong>
+
+                    </article>
+
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Ambiente aconchegante,
+                            atendimento excelente e
+                            pratos muito bem preparados.”
+                        </p>
+
+                        <strong>
+                            Camila Souza
+                        </strong>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
+
+            <div class="container cta-container">
+
+                <div>
+
+                    <span class="eyebrow">
+                        Sua próxima experiência
+                    </span>
+
+                    <h2>
+                        Vamos compartilhar
+                        uma mesa?
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="#contato"
+                    class="button button-light"
+                >
+                    Reservar uma mesa
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section
+            id="contato"
+            class="contact section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading centered">
+
+                    <span class="eyebrow">
+                        Visite-nos
+                    </span>
+
+                    <h2>
+                        Venha nos conhecer
                     </h2>
 
                 </div>
@@ -319,19 +684,56 @@
 
                 <div class="contact-grid">
 
-                    <div>
-                        <h3>Endereço</h3>
-                        <p>Rua das Flores, 123</p>
+
+                    <div class="contact-item">
+
+                        <span>
+                            📍
+                        </span>
+
+                        <h3>
+                            Endereço
+                        </h3>
+
+                        <p>
+                            Rua das Flores, 123
+                        </p>
+
                     </div>
 
-                    <div>
-                        <h3>Telefone</h3>
-                        <p>(31) 99999-9999</p>
+
+                    <div class="contact-item">
+
+                        <span>
+                            ☎
+                        </span>
+
+                        <h3>
+                            Telefone
+                        </h3>
+
+                        <p>
+                            (31) 99999-9999
+                        </p>
+
                     </div>
 
-                    <div>
-                        <h3>Horário</h3>
-                        <p>Terça a Domingo — 18h às 23h</p>
+
+                    <div class="contact-item">
+
+                        <span>
+                            🕐
+                        </span>
+
+                        <h3>
+                            Horários
+                        </h3>
+
+                        <p>
+                            Terça a Domingo<br>
+                            18h às 23h
+                        </p>
+
                     </div>
 
                 </div>
@@ -343,18 +745,67 @@
     </main>
 
 
-    <!-- RODAPÉ -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer class="footer">
 
-        <div class="container">
+        <div class="container footer-container">
+
+            <div>
+
+                <a
+                    href="#inicio"
+                    class="logo"
+                >
+                    <span>Bella</span>
+                    Tavola
+                </a>
+
+                <p>
+                    Cucina italiana feita para
+                    compartilhar.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#cardapio">
+                    Cardápio
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
 
             <p>
-                © 2026 Bella Tavola. Todos os direitos reservados.
+                © 2026 Bella Tavola.
+                Todos os direitos reservados.
             </p>
 
         </div>
 
     </footer>
+
 
 </body>
 
