@@ -1,6 +1,6 @@
 /* ==================================================
    BELLA TAVOLA
-   PROJETO 03 - V4
+   PROJETO 03 - V5
 
    Funcionalidades:
 
@@ -8,31 +8,32 @@
    - Filtro de categorias
    - Modal de detalhes
    - Carrinho
-   - Quantidade de produtos
    - LocalStorage
+   - Checkout
+   - Formulário do cliente
+   - Validação
+   - Data
+   - Horário
+   - Mesa
+   - Resumo do pedido
+   - Confirmação
 ================================================== */
 
 
 /* ==================================================
-   DADOS DOS PRODUTOS
+   PRODUTOS
 ================================================== */
 
 const products = [
 
     {
         id: 1,
-
         name: "Pizza Margherita",
-
         category: "pizza",
-
         categoryName: "Pizza",
-
         price: 42,
-
         description:
-            "Molho de tomate, mozzarella fresca, manjericão e azeite extravirgem. Uma clássica pizza italiana preparada artesanalmente.",
-
+            "Molho de tomate, mozzarella fresca, manjericão e azeite extravirgem.",
         image:
             "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=85"
     },
@@ -40,18 +41,12 @@ const products = [
 
     {
         id: 2,
-
         name: "Pasta della Casa",
-
         category: "massa",
-
         categoryName: "Massa",
-
         price: 48,
-
         description:
             "Massa artesanal preparada na casa, acompanhada de molho especial e parmesão italiano.",
-
         image:
             "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85"
     },
@@ -59,18 +54,12 @@ const products = [
 
     {
         id: 3,
-
         name: "Bistecca Toscana",
-
         category: "carne",
-
         categoryName: "Carne",
-
         price: 79,
-
         description:
-            "Corte selecionado grelhado no ponto ideal, servido com ervas frescas e legumes assados.",
-
+            "Corte selecionado grelhado, servido com ervas frescas e legumes assados.",
         image:
             "https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&w=1200&q=85"
     },
@@ -78,18 +67,12 @@ const products = [
 
     {
         id: 4,
-
         name: "Insalata Mediterrânea",
-
         category: "salada",
-
         categoryName: "Salada",
-
         price: 34,
-
         description:
             "Folhas frescas, tomates, queijo, ervas e molho especial da casa.",
-
         image:
             "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85"
     },
@@ -97,18 +80,12 @@ const products = [
 
     {
         id: 5,
-
         name: "Dolce Italiano",
-
         category: "sobremesa",
-
         categoryName: "Sobremesa",
-
         price: 28,
-
         description:
-            "Sobremesa artesanal preparada diariamente pelo nosso chef com ingredientes selecionados.",
-
+            "Sobremesa artesanal preparada diariamente pelo nosso chef.",
         image:
             "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=85"
     },
@@ -116,18 +93,12 @@ const products = [
 
     {
         id: 6,
-
         name: "Pizza Diavola",
-
         category: "pizza",
-
         categoryName: "Pizza",
-
         price: 49,
-
         description:
-            "Molho de tomate, mozzarella, salame picante e manjericão. Uma opção para quem gosta de sabores intensos.",
-
+            "Molho de tomate, mozzarella, salame picante e manjericão.",
         image:
             "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=85"
     }
@@ -136,7 +107,7 @@ const products = [
 
 
 /* ==================================================
-   ESTADO DO CARRINHO
+   CARRINHO
 ================================================== */
 
 let cart = JSON.parse(
@@ -145,7 +116,20 @@ let cart = JSON.parse(
 
 
 /* ==================================================
-   ELEMENTOS DO DOM
+   DADOS DO CHECKOUT
+================================================== */
+
+let checkoutData = {
+
+    customer: {},
+
+    reservation: {}
+
+};
+
+
+/* ==================================================
+   ELEMENTOS
 ================================================== */
 
 const cartButton =
@@ -181,7 +165,9 @@ const checkoutButton =
 ================================================== */
 
 const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
+    document.getElementById(
+        "mobileMenuButton"
+    );
 
 const mainNav =
     document.getElementById("mainNav");
@@ -191,54 +177,57 @@ mobileMenuButton.addEventListener(
     "click",
     () => {
 
-        const isOpen =
-            mainNav.classList.toggle("active");
+        const opened =
+            mainNav.classList.toggle(
+                "active"
+            );
+
 
         mobileMenuButton.setAttribute(
             "aria-expanded",
-            isOpen
+            opened
         );
 
     }
 );
 
 
-/* ==================================================
-   FECHAR MENU MOBILE AO CLICAR
-================================================== */
+mainNav
+    .querySelectorAll("a")
+    .forEach(link => {
 
-const navLinks =
-    mainNav.querySelectorAll("a");
+        link.addEventListener(
+            "click",
+            () => {
 
+                mainNav.classList.remove(
+                    "active"
+                );
 
-navLinks.forEach(link => {
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-    link.addEventListener(
-        "click",
-        () => {
+            }
+        );
 
-            mainNav.classList.remove("active");
-
-            mobileMenuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-    );
-
-});
+    });
 
 
 /* ==================================================
-   FILTRO DE CATEGORIAS
+   FILTROS
 ================================================== */
 
 const filterButtons =
-    document.querySelectorAll(".filter-button");
+    document.querySelectorAll(
+        ".filter-button"
+    );
 
 const menuCards =
-    document.querySelectorAll(".menu-card");
+    document.querySelectorAll(
+        ".menu-card"
+    );
 
 
 filterButtons.forEach(button => {
@@ -262,18 +251,16 @@ filterButtons.forEach(button => {
             );
 
 
-            button.classList.add("active");
+            button.classList.add(
+                "active"
+            );
 
 
             menuCards.forEach(card => {
 
-                const cardCategory =
-                    card.dataset.category;
-
-
                 if (
                     category === "todos" ||
-                    category === cardCategory
+                    card.dataset.category === category
                 ) {
 
                     card.classList.remove(
@@ -297,7 +284,7 @@ filterButtons.forEach(button => {
 
 
 /* ==================================================
-   FORMATAÇÃO DE MOEDA
+   MOEDA
 ================================================== */
 
 function formatCurrency(value) {
@@ -314,7 +301,7 @@ function formatCurrency(value) {
 
 
 /* ==================================================
-   SALVAR CARRINHO
+   LOCAL STORAGE
 ================================================== */
 
 function saveCart() {
@@ -328,7 +315,7 @@ function saveCart() {
 
 
 /* ==================================================
-   ADICIONAR PRODUTO
+   ADICIONAR AO CARRINHO
 ================================================== */
 
 function addToCart(productId) {
@@ -344,15 +331,15 @@ function addToCart(productId) {
     }
 
 
-    const existingProduct =
+    const existing =
         cart.find(
             item => item.id === productId
         );
 
 
-    if (existingProduct) {
+    if (existing) {
 
-        existingProduct.quantity += 1;
+        existing.quantity++;
 
     } else {
 
@@ -377,48 +364,41 @@ function addToCart(productId) {
 
     updateCart();
 
-
     openCart();
 
 }
 
 
 /* ==================================================
-   AUMENTAR QUANTIDADE
+   QUANTIDADE
 ================================================== */
 
-function increaseQuantity(productId) {
+function increaseQuantity(id) {
 
     const item =
         cart.find(
-            product => product.id === productId
+            product => product.id === id
         );
 
 
-    if (!item) {
-        return;
+    if (item) {
+
+        item.quantity++;
+
+        saveCart();
+
+        updateCart();
+
     }
-
-
-    item.quantity += 1;
-
-
-    saveCart();
-
-    updateCart();
 
 }
 
 
-/* ==================================================
-   DIMINUIR QUANTIDADE
-================================================== */
-
-function decreaseQuantity(productId) {
+function decreaseQuantity(id) {
 
     const item =
         cart.find(
-            product => product.id === productId
+            product => product.id === id
         );
 
 
@@ -427,14 +407,14 @@ function decreaseQuantity(productId) {
     }
 
 
-    item.quantity -= 1;
+    item.quantity--;
 
 
     if (item.quantity <= 0) {
 
         cart =
             cart.filter(
-                product => product.id !== productId
+                product => product.id !== id
             );
 
     }
@@ -447,15 +427,11 @@ function decreaseQuantity(productId) {
 }
 
 
-/* ==================================================
-   REMOVER ITEM
-================================================== */
-
-function removeFromCart(productId) {
+function removeFromCart(id) {
 
     cart =
         cart.filter(
-            product => product.id !== productId
+            product => product.id !== id
         );
 
 
@@ -467,36 +443,26 @@ function removeFromCart(productId) {
 
 
 /* ==================================================
-   CALCULAR QUANTIDADE
+   CÁLCULOS
 ================================================== */
 
 function getCartQuantity() {
 
     return cart.reduce(
-        (total, item) => {
-
-            return total + item.quantity;
-
-        },
+        (total, item) =>
+            total + item.quantity,
         0
     );
 
 }
 
 
-/* ==================================================
-   CALCULAR TOTAL
-================================================== */
-
 function getCartTotal() {
 
     return cart.reduce(
-        (total, item) => {
-
-            return total +
-                item.price * item.quantity;
-
-        },
+        (total, item) =>
+            total +
+            item.price * item.quantity,
         0
     );
 
@@ -509,20 +475,14 @@ function getCartTotal() {
 
 function updateCart() {
 
-    const quantity =
+    cartCount.textContent =
         getCartQuantity();
 
 
-    const total =
-        getCartTotal();
-
-
-    cartCount.textContent =
-        quantity;
-
-
     cartTotal.textContent =
-        formatCurrency(total);
+        formatCurrency(
+            getCartTotal()
+        );
 
 
     renderCart();
@@ -560,16 +520,14 @@ function renderCart() {
         `;
 
         return;
+
     }
 
 
     cartItems.innerHTML =
         cart.map(item => `
 
-            <div
-                class="cart-item"
-                data-id="${item.id}"
-            >
+            <div class="cart-item">
 
                 <div class="cart-item-image">
 
@@ -647,82 +605,70 @@ function renderCart() {
 
 function attachCartEvents() {
 
+    document
+        .querySelectorAll(".increase-button")
+        .forEach(button => {
 
-    const increaseButtons =
-        document.querySelectorAll(
-            ".increase-button"
-        );
+            button.addEventListener(
+                "click",
+                () => {
 
+                    increaseQuantity(
+                        Number(
+                            button.dataset.id
+                        )
+                    );
 
-    increaseButtons.forEach(button => {
+                }
+            );
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const id =
-                    Number(button.dataset.id);
-
-                increaseQuantity(id);
-
-            }
-        );
-
-    });
+        });
 
 
+    document
+        .querySelectorAll(".decrease-button")
+        .forEach(button => {
 
-    const decreaseButtons =
-        document.querySelectorAll(
-            ".decrease-button"
-        );
+            button.addEventListener(
+                "click",
+                () => {
 
+                    decreaseQuantity(
+                        Number(
+                            button.dataset.id
+                        )
+                    );
 
-    decreaseButtons.forEach(button => {
+                }
+            );
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const id =
-                    Number(button.dataset.id);
-
-                decreaseQuantity(id);
-
-            }
-        );
-
-    });
+        });
 
 
+    document
+        .querySelectorAll(".remove-item")
+        .forEach(button => {
 
-    const removeButtons =
-        document.querySelectorAll(
-            ".remove-item"
-        );
+            button.addEventListener(
+                "click",
+                () => {
 
+                    removeFromCart(
+                        Number(
+                            button.dataset.id
+                        )
+                    );
 
-    removeButtons.forEach(button => {
+                }
+            );
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const id =
-                    Number(button.dataset.id);
-
-                removeFromCart(id);
-
-            }
-        );
-
-    });
+        });
 
 }
 
 
 /* ==================================================
-   ABRIR CARRINHO
+   ABRIR / FECHAR CARRINHO
 ================================================== */
 
 function openCart() {
@@ -735,21 +681,12 @@ function openCart() {
         "active"
     );
 
-    cartSidebar.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
     document.body.classList.add(
         "no-scroll"
     );
 
 }
 
-
-/* ==================================================
-   FECHAR CARRINHO
-================================================== */
 
 function closeCart() {
 
@@ -761,21 +698,12 @@ function closeCart() {
         "active"
     );
 
-    cartSidebar.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
     document.body.classList.remove(
         "no-scroll"
     );
 
 }
 
-
-/* ==================================================
-   EVENTOS DO CARRINHO
-================================================== */
 
 cartButton.addEventListener(
     "click",
@@ -808,19 +736,18 @@ clearCartButton.addEventListener(
         }
 
 
-        const confirmed =
-            confirm(
+        if (
+            !confirm(
                 "Deseja realmente limpar o carrinho?"
-            );
+            )
+        ) {
 
-
-        if (!confirmed) {
             return;
+
         }
 
 
         cart = [];
-
 
         saveCart();
 
@@ -831,39 +758,7 @@ clearCartButton.addEventListener(
 
 
 /* ==================================================
-   FINALIZAR PEDIDO
-================================================== */
-
-checkoutButton.addEventListener(
-    "click",
-    () => {
-
-        if (cart.length === 0) {
-
-            alert(
-                "Seu carrinho está vazio."
-            );
-
-            return;
-        }
-
-
-        const total =
-            formatCurrency(
-                getCartTotal()
-            );
-
-
-        alert(
-            `Pedido registrado com sucesso!\n\nTotal: ${total}\n\nEsta é uma simulação para fins de estudo.`
-        );
-
-    }
-);
-
-
-/* ==================================================
-   MODAL
+   MODAL DE PRODUTO
 ================================================== */
 
 const detailsModal =
@@ -909,15 +804,11 @@ const modalAddButton =
 let currentModalProduct = null;
 
 
-/* ==================================================
-   ABRIR MODAL
-================================================== */
-
-function openModal(productId) {
+function openProductModal(id) {
 
     const product =
         products.find(
-            item => item.id === productId
+            item => item.id === id
         );
 
 
@@ -933,22 +824,17 @@ function openModal(productId) {
     modalImage.src =
         product.image;
 
-
     modalImage.alt =
         product.name;
-
 
     modalCategory.textContent =
         product.categoryName;
 
-
     modalTitle.textContent =
         product.name;
 
-
     modalDescription.textContent =
         product.description;
-
 
     modalPrice.textContent =
         formatCurrency(
@@ -960,13 +846,6 @@ function openModal(productId) {
         "active"
     );
 
-
-    detailsModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
     document.body.classList.add(
         "no-scroll"
     );
@@ -974,90 +853,60 @@ function openModal(productId) {
 }
 
 
-/* ==================================================
-   FECHAR MODAL
-================================================== */
-
-function closeModal() {
+function closeProductModal() {
 
     detailsModal.classList.remove(
         "active"
     );
 
-
-    detailsModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
     document.body.classList.remove(
         "no-scroll"
     );
-
 
     currentModalProduct = null;
 
 }
 
 
-/* ==================================================
-   BOTÕES DE DETALHES
-================================================== */
+document
+    .querySelectorAll(".details-button")
+    .forEach(button => {
 
-const detailsButtons =
-    document.querySelectorAll(
-        ".details-button"
-    );
+        button.addEventListener(
+            "click",
+            () => {
 
+                openProductModal(
+                    Number(
+                        button.dataset.id
+                    )
+                );
 
-detailsButtons.forEach(button => {
+            }
+        );
 
-    button.addEventListener(
-        "click",
-        () => {
-
-            const id =
-                Number(button.dataset.id);
-
-            openModal(id);
-
-        }
-    );
-
-});
+    });
 
 
-/* ==================================================
-   BOTÕES ADICIONAR
-================================================== */
+document
+    .querySelectorAll(".add-button")
+    .forEach(button => {
 
-const addButtons =
-    document.querySelectorAll(
-        ".add-button"
-    );
+        button.addEventListener(
+            "click",
+            () => {
 
+                addToCart(
+                    Number(
+                        button.dataset.id
+                    )
+                );
 
-addButtons.forEach(button => {
+            }
+        );
 
-    button.addEventListener(
-        "click",
-        () => {
+    });
 
-            const id =
-                Number(button.dataset.id);
-
-            addToCart(id);
-
-        }
-    );
-
-});
-
-
-/* ==================================================
-   ADICIONAR PELO MODAL
-================================================== */
 
 modalAddButton.addEventListener(
     "click",
@@ -1073,43 +922,1098 @@ modalAddButton.addEventListener(
         );
 
 
-        closeModal();
+        closeProductModal();
 
     }
 );
 
 
-/* ==================================================
-   FECHAR MODAL
-================================================== */
-
 modalClose.addEventListener(
     "click",
-    closeModal
+    closeProductModal
 );
 
-
-/* ==================================================
-   FECHAR MODAL CLICANDO FORA
-================================================== */
 
 detailsModal.addEventListener(
     "click",
     event => {
 
         if (
-            event.target === detailsModal ||
             event.target.classList.contains(
                 "modal-overlay"
             )
         ) {
 
-            closeModal();
+            closeProductModal();
 
         }
 
     }
 );
+
+
+/* ==================================================
+   CHECKOUT
+================================================== */
+
+const checkoutModal =
+    document.getElementById(
+        "checkoutModal"
+    );
+
+const checkoutClose =
+    document.getElementById(
+        "checkoutClose"
+    );
+
+const checkoutForm =
+    document.getElementById(
+        "checkoutForm"
+    );
+
+
+/* ==================================================
+   DATA MÍNIMA
+================================================== */
+
+const reservationDate =
+    document.getElementById(
+        "reservationDate"
+    );
+
+
+const today =
+    new Date();
+
+
+const todayString =
+    today.toISOString()
+        .split("T")[0];
+
+
+reservationDate.min =
+    todayString;
+
+
+/* ==================================================
+   ABRIR CHECKOUT
+================================================== */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Adicione pelo menos um item ao carrinho antes de continuar."
+        );
+
+        return;
+
+    }
+
+
+    closeCart();
+
+
+    checkoutModal.classList.add(
+        "active"
+    );
+
+
+    checkoutModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+
+    goToCheckoutStep(1);
+
+}
+
+
+checkoutButton.addEventListener(
+    "click",
+    openCheckout
+);
+
+
+/* ==================================================
+   FECHAR CHECKOUT
+================================================== */
+
+function closeCheckout() {
+
+    checkoutModal.classList.remove(
+        "active"
+    );
+
+
+    checkoutModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+}
+
+
+checkoutClose.addEventListener(
+    "click",
+    closeCheckout
+);
+
+
+/* ==================================================
+   ETAPAS DO CHECKOUT
+================================================== */
+
+const checkoutPanels =
+    document.querySelectorAll(
+        ".checkout-panel"
+    );
+
+const checkoutSteps =
+    document.querySelectorAll(
+        ".checkout-step"
+    );
+
+
+function goToCheckoutStep(step) {
+
+    checkoutPanels.forEach(panel => {
+
+        panel.classList.toggle(
+            "active",
+            Number(
+                panel.dataset.panel
+            ) === step
+        );
+
+    });
+
+
+    checkoutSteps.forEach(item => {
+
+        item.classList.toggle(
+            "active",
+            Number(
+                item.dataset.step
+            ) <= step
+        );
+
+    });
+
+}
+
+
+/* ==================================================
+   CAMPOS
+================================================== */
+
+const customerName =
+    document.getElementById(
+        "customerName"
+    );
+
+const customerPhone =
+    document.getElementById(
+        "customerPhone"
+    );
+
+const customerEmail =
+    document.getElementById(
+        "customerEmail"
+    );
+
+const customerNotes =
+    document.getElementById(
+        "customerNotes"
+    );
+
+const reservationTime =
+    document.getElementById(
+        "reservationTime"
+    );
+
+const guests =
+    document.getElementById(
+        "guests"
+    );
+
+const table =
+    document.getElementById(
+        "table"
+    );
+
+
+/* ==================================================
+   ERROS
+================================================== */
+
+function setError(
+    input,
+    message
+) {
+
+    const group =
+        input.closest(
+            ".form-group"
+        );
+
+
+    const error =
+        group.querySelector(
+            ".error-message"
+        );
+
+
+    group.classList.add(
+        "error"
+    );
+
+
+    error.textContent =
+        message;
+
+}
+
+
+function clearError(input) {
+
+    const group =
+        input.closest(
+            ".form-group"
+        );
+
+
+    const error =
+        group.querySelector(
+            ".error-message"
+        );
+
+
+    group.classList.remove(
+        "error"
+    );
+
+
+    error.textContent =
+        "";
+
+}
+
+
+/* ==================================================
+   VALIDAÇÃO DO CLIENTE
+================================================== */
+
+function validateCustomer() {
+
+    let valid = true;
+
+
+    if (
+        customerName.value.trim().length < 3
+    ) {
+
+        setError(
+            customerName,
+            "Digite seu nome completo."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            customerName
+        );
+
+    }
+
+
+    const phoneDigits =
+        customerPhone.value
+            .replace(/\D/g, "");
+
+
+    if (
+        phoneDigits.length < 10
+    ) {
+
+        setError(
+            customerPhone,
+            "Digite um telefone válido."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            customerPhone
+        );
+
+    }
+
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (
+        !emailRegex.test(
+            customerEmail.value.trim()
+        )
+    ) {
+
+        setError(
+            customerEmail,
+            "Digite um e-mail válido."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            customerEmail
+        );
+
+    }
+
+
+    return valid;
+
+}
+
+
+/* ==================================================
+   VALIDAÇÃO DA RESERVA
+================================================== */
+
+function validateReservation() {
+
+    let valid = true;
+
+
+    if (
+        !reservationDate.value
+    ) {
+
+        setError(
+            reservationDate,
+            "Escolha uma data."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            reservationDate
+        );
+
+    }
+
+
+    if (
+        !reservationTime.value
+    ) {
+
+        setError(
+            reservationTime,
+            "Escolha um horário."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            reservationTime
+        );
+
+    }
+
+
+    if (
+        !guests.value
+    ) {
+
+        setError(
+            guests,
+            "Escolha a quantidade de pessoas."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            guests
+        );
+
+    }
+
+
+    if (
+        !table.value
+    ) {
+
+        setError(
+            table,
+            "Escolha uma mesa."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            table
+        );
+
+    }
+
+
+    return valid;
+
+}
+
+
+/* ==================================================
+   SALVAR DADOS DO CLIENTE
+================================================== */
+
+function saveCustomerData() {
+
+    checkoutData.customer = {
+
+        name:
+            customerName.value.trim(),
+
+        phone:
+            customerPhone.value.trim(),
+
+        email:
+            customerEmail.value.trim(),
+
+        notes:
+            customerNotes.value.trim()
+
+    };
+
+}
+
+
+/* ==================================================
+   SALVAR RESERVA
+================================================== */
+
+function saveReservationData() {
+
+    checkoutData.reservation = {
+
+        date:
+            reservationDate.value,
+
+        time:
+            reservationTime.value,
+
+        guests:
+            guests.value,
+
+        table:
+            table.value
+
+    };
+
+}
+
+
+/* ==================================================
+   FORMATAR DATA
+================================================== */
+
+function formatDate(date) {
+
+    if (!date) {
+        return "";
+    }
+
+
+    const parts =
+        date.split("-");
+
+
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+/* ==================================================
+   RESUMO
+================================================== */
+
+function generateSummary() {
+
+    const summary =
+        document.getElementById(
+            "checkoutSummary"
+        );
+
+
+    const customer =
+        checkoutData.customer;
+
+
+    const reservation =
+        checkoutData.reservation;
+
+
+    const productsHTML =
+        cart.map(item => `
+
+            <div class="summary-product">
+
+                <span>
+                    ${item.quantity}x
+                    ${item.name}
+                </span>
+
+                <strong>
+                    ${formatCurrency(
+                        item.price *
+                        item.quantity
+                    )}
+                </strong>
+
+            </div>
+
+        `).join("");
+
+
+    summary.innerHTML = `
+
+        <div class="summary-section">
+
+            <h4>
+                Cliente
+            </h4>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Nome
+                </span>
+
+                <strong>
+                    ${customer.name}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Telefone
+                </span>
+
+                <strong>
+                    ${customer.phone}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    E-mail
+                </span>
+
+                <strong>
+                    ${customer.email}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="summary-section">
+
+            <h4>
+                Reserva
+            </h4>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Data
+                </span>
+
+                <strong>
+                    ${formatDate(
+                        reservation.date
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Horário
+                </span>
+
+                <strong>
+                    ${reservation.time}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Pessoas
+                </span>
+
+                <strong>
+                    ${reservation.guests}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Mesa
+                </span>
+
+                <strong>
+                    ${reservation.table}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="summary-section">
+
+            <h4>
+                Seu pedido
+            </h4>
+
+
+            <div class="summary-products">
+
+                ${productsHTML}
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong>
+                    ${formatCurrency(
+                        getCartTotal()
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==================================================
+   ETAPA 1 → ETAPA 2
+================================================== */
+
+document
+    .getElementById(
+        "nextToReservation"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (
+                !validateCustomer()
+            ) {
+
+                return;
+
+            }
+
+
+            saveCustomerData();
+
+
+            goToCheckoutStep(2);
+
+        }
+    );
+
+
+/* ==================================================
+   ETAPA 2 → ETAPA 1
+================================================== */
+
+document
+    .getElementById(
+        "backToCustomer"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToCheckoutStep(1);
+
+        }
+    );
+
+
+/* ==================================================
+   ETAPA 2 → ETAPA 3
+================================================== */
+
+document
+    .getElementById(
+        "nextToSummary"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (
+                !validateReservation()
+            ) {
+
+                return;
+
+            }
+
+
+            saveReservationData();
+
+
+            generateSummary();
+
+
+            goToCheckoutStep(3);
+
+        }
+    );
+
+
+/* ==================================================
+   ETAPA 3 → ETAPA 2
+================================================== */
+
+document
+    .getElementById(
+        "backToReservation"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToCheckoutStep(2);
+
+        }
+    );
+
+
+/* ==================================================
+   CONFIRMAR PEDIDO
+================================================== */
+
+checkoutForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+
+        if (
+            !validateCustomer() ||
+            !validateReservation()
+        ) {
+
+            return;
+
+        }
+
+
+        saveCustomerData();
+
+        saveReservationData();
+
+        generateSummary();
+
+        showConfirmation();
+
+    }
+);
+
+
+/* ==================================================
+   CONFIRMAÇÃO
+================================================== */
+
+const confirmationModal =
+    document.getElementById(
+        "confirmationModal"
+    );
+
+const confirmationDetails =
+    document.getElementById(
+        "confirmationDetails"
+    );
+
+const closeConfirmation =
+    document.getElementById(
+        "closeConfirmation"
+    );
+
+
+function generateOrderNumber() {
+
+    return Math.floor(
+        100000 +
+        Math.random() * 900000
+    );
+
+}
+
+
+function showConfirmation() {
+
+    const orderNumber =
+        generateOrderNumber();
+
+
+    confirmationDetails.innerHTML = `
+
+        <div class="confirmation-detail">
+
+            <span>
+                Pedido
+            </span>
+
+            <strong>
+                #${orderNumber}
+            </strong>
+
+        </div>
+
+
+        <div class="confirmation-detail">
+
+            <span>
+                Cliente
+            </span>
+
+            <strong>
+                ${checkoutData.customer.name}
+            </strong>
+
+        </div>
+
+
+        <div class="confirmation-detail">
+
+            <span>
+                Data
+            </span>
+
+            <strong>
+                ${formatDate(
+                    checkoutData.reservation.date
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="confirmation-detail">
+
+            <span>
+                Horário
+            </span>
+
+            <strong>
+                ${checkoutData.reservation.time}
+            </strong>
+
+        </div>
+
+
+        <div class="confirmation-detail">
+
+            <span>
+                Mesa
+            </span>
+
+            <strong>
+                ${checkoutData.reservation.table}
+            </strong>
+
+        </div>
+
+
+        <div class="confirmation-detail">
+
+            <span>
+                Total
+            </span>
+
+            <strong>
+                ${formatCurrency(
+                    getCartTotal()
+                )}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    checkoutModal.classList.remove(
+        "active"
+    );
+
+
+    confirmationModal.classList.add(
+        "active"
+    );
+
+
+    confirmationModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    /*
+       O pedido foi "finalizado".
+       Portanto, limpamos o carrinho.
+    */
+
+    cart = [];
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* ==================================================
+   FECHAR CONFIRMAÇÃO
+================================================== */
+
+closeConfirmation.addEventListener(
+    "click",
+    () => {
+
+        confirmationModal.classList.remove(
+            "active"
+        );
+
+
+        confirmationModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        document.body.classList.remove(
+            "no-scroll"
+        );
+
+
+        checkoutForm.reset();
+
+
+        checkoutData = {
+
+            customer: {},
+
+            reservation: {}
+
+        };
+
+
+        goToCheckoutStep(1);
+
+    }
+);
+
+
+/* ==================================================
+   RESERVA DO HERO
+================================================== */
+
+document
+    .getElementById(
+        "reservationButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Adicione pelo menos um prato ao pedido antes de fazer a reserva."
+                );
+
+                document
+                    .getElementById(
+                        "cardapio"
+                    )
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                return;
+
+            }
+
+
+            openCheckout();
+
+        }
+    );
 
 
 /* ==================================================
@@ -1120,14 +2024,20 @@ document.addEventListener(
     "keydown",
     event => {
 
-        if (event.key !== "Escape") {
+        if (
+            event.key !== "Escape"
+        ) {
+
             return;
+
         }
 
 
-        closeModal();
+        closeProductModal();
 
         closeCart();
+
+        closeCheckout();
 
     }
 );

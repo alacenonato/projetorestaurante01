@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Bella Tavola - Restaurante italiano com massas artesanais, pizzas e pratos especiais."
+        content="Bella Tavola - Restaurante italiano"
     >
 
     <title>Bella Tavola | Cucina Italiana</title>
@@ -105,7 +105,6 @@
             <button
                 class="cart-button"
                 id="cartButton"
-                aria-label="Abrir carrinho"
             >
 
                 🛒
@@ -122,7 +121,6 @@
                 </span>
 
             </button>
-
 
         </div>
 
@@ -228,7 +226,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -340,7 +337,7 @@
                 >
 
 
-                    <!-- PIZZA -->
+                    <!-- PRODUTO 1 -->
 
                     <article
                         class="menu-card"
@@ -352,7 +349,7 @@
 
                             <img
                                 src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=85"
-                                alt="Pizza Margherita italiana"
+                                alt="Pizza Margherita"
                                 loading="lazy"
                             >
 
@@ -405,7 +402,7 @@
 
 
 
-                    <!-- MASSA -->
+                    <!-- PRODUTO 2 -->
 
                     <article
                         class="menu-card"
@@ -417,7 +414,7 @@
 
                             <img
                                 src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85"
-                                alt="Massa italiana artesanal"
+                                alt="Pasta della Casa"
                                 loading="lazy"
                             >
 
@@ -470,7 +467,7 @@
 
 
 
-                    <!-- CARNE -->
+                    <!-- PRODUTO 3 -->
 
                     <article
                         class="menu-card"
@@ -482,7 +479,7 @@
 
                             <img
                                 src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&w=1200&q=85"
-                                alt="Bistecca grelhada"
+                                alt="Bistecca Toscana"
                                 loading="lazy"
                             >
 
@@ -535,7 +532,7 @@
 
 
 
-                    <!-- SALADA -->
+                    <!-- PRODUTO 4 -->
 
                     <article
                         class="menu-card"
@@ -547,7 +544,7 @@
 
                             <img
                                 src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85"
-                                alt="Salada mediterrânea"
+                                alt="Insalata Mediterrânea"
                                 loading="lazy"
                             >
 
@@ -571,7 +568,7 @@
 
                             <p>
                                 Folhas frescas, tomates, queijo,
-                                ervas e molho especial da casa.
+                                ervas e molho especial.
                             </p>
 
 
@@ -600,7 +597,7 @@
 
 
 
-                    <!-- SOBREMESA -->
+                    <!-- PRODUTO 5 -->
 
                     <article
                         class="menu-card"
@@ -612,7 +609,7 @@
 
                             <img
                                 src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=85"
-                                alt="Sobremesa artesanal"
+                                alt="Dolce Italiano"
                                 loading="lazy"
                             >
 
@@ -665,7 +662,7 @@
 
 
 
-                    <!-- PIZZA -->
+                    <!-- PRODUTO 6 -->
 
                     <article
                         class="menu-card"
@@ -728,7 +725,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -753,7 +749,7 @@
 
                     <img
                         src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85"
-                        alt="Interior elegante de restaurante"
+                        alt="Interior do restaurante"
                         loading="lazy"
                     >
 
@@ -775,8 +771,7 @@
 
                     <p>
                         O Bella Tavola nasceu inspirado nas tradicionais
-                        trattorias italianas, onde comida e família sempre
-                        estiveram juntas à mesa.
+                        trattorias italianas.
                     </p>
 
 
@@ -840,8 +835,7 @@
 
                         <p>
                             "Um dos melhores restaurantes italianos
-                            que já visitei. A massa estava simplesmente
-                            perfeita."
+                            que já visitei."
                         </p>
 
                         <strong>
@@ -922,12 +916,12 @@
                 </p>
 
 
-                <a
-                    href="#contato"
+                <button
                     class="btn btn-light"
+                    id="reservationButton"
                 >
                     Fazer uma reserva
-                </a>
+                </button>
 
             </div>
 
@@ -1066,7 +1060,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -1109,7 +1102,6 @@
             <button
                 class="modal-close"
                 id="modalClose"
-                aria-label="Fechar"
             >
                 ×
             </button>
@@ -1173,7 +1165,6 @@
         aria-hidden="true"
     >
 
-
         <div class="cart-header">
 
             <div>
@@ -1192,7 +1183,6 @@
             <button
                 class="cart-close"
                 id="cartClose"
-                aria-label="Fechar carrinho"
             >
                 ×
             </button>
@@ -1200,20 +1190,14 @@
         </div>
 
 
-
         <div
             class="cart-items"
             id="cartItems"
         >
-
-            <!-- JavaScript preencherá aqui -->
-
         </div>
 
 
-
         <div class="cart-footer">
-
 
             <div class="cart-total">
 
@@ -1232,7 +1216,7 @@
                 class="checkout-button"
                 id="checkoutButton"
             >
-                Finalizar pedido
+                Continuar para checkout
             </button>
 
 
@@ -1245,12 +1229,9 @@
 
         </div>
 
-
     </aside>
 
 
-
-    <!-- OVERLAY DO CARRINHO -->
 
     <div
         class="cart-overlay"
@@ -1258,6 +1239,626 @@
     >
     </div>
 
+
+
+    <!-- ==================================================
+         CHECKOUT
+    ================================================== -->
+
+    <div
+        class="checkout-modal"
+        id="checkoutModal"
+        aria-hidden="true"
+    >
+
+        <div class="checkout-overlay"></div>
+
+
+        <div class="checkout-container">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="checkout-header">
+
+                <div>
+
+                    <span class="section-label">
+                        BELLA TAVOLA
+                    </span>
+
+                    <h2>
+                        Finalizar pedido
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="checkout-close"
+                    id="checkoutClose"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- INDICADOR DE ETAPAS -->
+
+            <div class="checkout-steps">
+
+                <div
+                    class="checkout-step active"
+                    data-step="1"
+                >
+
+                    <span>
+                        1
+                    </span>
+
+                    <strong>
+                        Seus dados
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="checkout-step"
+                    data-step="2"
+                >
+
+                    <span>
+                        2
+                    </span>
+
+                    <strong>
+                        Reserva
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="checkout-step"
+                    data-step="3"
+                >
+
+                    <span>
+                        3
+                    </span>
+
+                    <strong>
+                        Resumo
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FORMULÁRIO -->
+
+            <form
+                id="checkoutForm"
+                novalidate
+            >
+
+
+                <!-- ==================================================
+                     ETAPA 1
+                ================================================== -->
+
+                <div
+                    class="checkout-panel active"
+                    data-panel="1"
+                >
+
+                    <div class="checkout-panel-heading">
+
+                        <span class="section-label">
+                            ETAPA 01
+                        </span>
+
+                        <h3>
+                            Seus dados
+                        </h3>
+
+                        <p>
+                            Precisamos de algumas informações
+                            para preparar sua reserva.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Nome completo *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                name="customerName"
+                                placeholder="Digite seu nome"
+                                autocomplete="name"
+                            >
+
+                            <small
+                                class="error-message"
+                                id="customerNameError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="customerPhone">
+                                Telefone *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="customerPhone"
+                                name="customerPhone"
+                                placeholder="(00) 00000-0000"
+                                autocomplete="tel"
+                            >
+
+                            <small
+                                class="error-message"
+                                id="customerPhoneError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group full">
+
+                            <label for="customerEmail">
+                                E-mail *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="customerEmail"
+                                name="customerEmail"
+                                placeholder="seuemail@email.com"
+                                autocomplete="email"
+                            >
+
+                            <small
+                                class="error-message"
+                                id="customerEmailError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group full">
+
+                            <label for="customerNotes">
+                                Observações
+                            </label>
+
+                            <textarea
+                                id="customerNotes"
+                                name="customerNotes"
+                                rows="4"
+                                placeholder="Alguma observação especial?"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="checkout-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="nextToReservation"
+                        >
+                            Continuar
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     ETAPA 2
+                ================================================== -->
+
+                <div
+                    class="checkout-panel"
+                    data-panel="2"
+                >
+
+                    <div class="checkout-panel-heading">
+
+                        <span class="section-label">
+                            ETAPA 02
+                        </span>
+
+                        <h3>
+                            Sua reserva
+                        </h3>
+
+                        <p>
+                            Escolha a data, horário e quantidade
+                            de pessoas.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="reservationDate">
+                                Data *
+                            </label>
+
+                            <input
+                                type="date"
+                                id="reservationDate"
+                                name="reservationDate"
+                            >
+
+                            <small
+                                class="error-message"
+                                id="reservationDateError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="reservationTime">
+                                Horário *
+                            </label>
+
+                            <select
+                                id="reservationTime"
+                                name="reservationTime"
+                            >
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="18:00">
+                                    18:00
+                                </option>
+
+                                <option value="18:30">
+                                    18:30
+                                </option>
+
+                                <option value="19:00">
+                                    19:00
+                                </option>
+
+                                <option value="19:30">
+                                    19:30
+                                </option>
+
+                                <option value="20:00">
+                                    20:00
+                                </option>
+
+                                <option value="20:30">
+                                    20:30
+                                </option>
+
+                                <option value="21:00">
+                                    21:00
+                                </option>
+
+                                <option value="21:30">
+                                    21:30
+                                </option>
+
+                                <option value="22:00">
+                                    22:00
+                                </option>
+
+                            </select>
+
+                            <small
+                                class="error-message"
+                                id="reservationTimeError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="guests">
+                                Pessoas *
+                            </label>
+
+                            <select
+                                id="guests"
+                                name="guests"
+                            >
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="1">
+                                    1 pessoa
+                                </option>
+
+                                <option value="2">
+                                    2 pessoas
+                                </option>
+
+                                <option value="3">
+                                    3 pessoas
+                                </option>
+
+                                <option value="4">
+                                    4 pessoas
+                                </option>
+
+                                <option value="5">
+                                    5 pessoas
+                                </option>
+
+                                <option value="6">
+                                    6 pessoas
+                                </option>
+
+                                <option value="7">
+                                    7 pessoas
+                                </option>
+
+                                <option value="8">
+                                    8 pessoas
+                                </option>
+
+                            </select>
+
+                            <small
+                                class="error-message"
+                                id="guestsError"
+                            >
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="table">
+                                Mesa *
+                            </label>
+
+                            <select
+                                id="table"
+                                name="table"
+                            >
+
+                                <option value="">
+                                    Escolha uma mesa
+                                </option>
+
+                                <option value="Mesa 01">
+                                    Mesa 01 — Janela
+                                </option>
+
+                                <option value="Mesa 02">
+                                    Mesa 02 — Salão
+                                </option>
+
+                                <option value="Mesa 03">
+                                    Mesa 03 — Salão
+                                </option>
+
+                                <option value="Mesa 04">
+                                    Mesa 04 — Terraço
+                                </option>
+
+                                <option value="Mesa 05">
+                                    Mesa 05 — Terraço
+                                </option>
+
+                                <option value="Mesa 06">
+                                    Mesa 06 — Reservada
+                                </option>
+
+                            </select>
+
+                            <small
+                                class="error-message"
+                                id="tableError"
+                            >
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="checkout-actions split">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="backToCustomer"
+                        >
+                            Voltar
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="nextToSummary"
+                        >
+                            Ver resumo
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     ETAPA 3
+                ================================================== -->
+
+                <div
+                    class="checkout-panel"
+                    data-panel="3"
+                >
+
+                    <div class="checkout-panel-heading">
+
+                        <span class="section-label">
+                            ETAPA 03
+                        </span>
+
+                        <h3>
+                            Confirme seu pedido
+                        </h3>
+
+                        <p>
+                            Confira todas as informações antes
+                            de confirmar.
+                        </p>
+
+                    </div>
+
+
+
+                    <div
+                        class="summary"
+                        id="checkoutSummary"
+                    >
+                    </div>
+
+
+
+                    <div class="checkout-actions split">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="backToReservation"
+                        >
+                            Voltar
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Confirmar pedido
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         TELA DE CONFIRMAÇÃO
+    ================================================== -->
+
+    <div
+        class="confirmation-modal"
+        id="confirmationModal"
+        aria-hidden="true"
+    >
+
+        <div class="confirmation-overlay"></div>
+
+
+        <div class="confirmation-card">
+
+            <div class="confirmation-icon">
+                ✓
+            </div>
+
+
+            <span class="section-label">
+                TUDO CERTO!
+            </span>
+
+
+            <h2>
+                Pedido confirmado.
+            </h2>
+
+
+            <p>
+                Obrigado por escolher o Bella Tavola.
+                Sua reserva foi registrada com sucesso.
+            </p>
+
+
+            <div
+                class="confirmation-details"
+                id="confirmationDetails"
+            >
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                id="closeConfirmation"
+            >
+                Voltar ao restaurante
+            </button>
+
+        </div>
+
+    </div>
 
 
     <!-- JAVASCRIPT -->
